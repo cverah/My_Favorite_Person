@@ -463,41 +463,60 @@ body {
 }
 
 /* Estilo del modal */
+/* Estilos para el modal */
 .modal {
   display: none; /* Oculto por defecto */
-  position: fixed; /* Se queda fijo en el lugar */
-  z-index: 1; /* Situado encima de otros elementos */
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; /* Anchura completa */
-  height: 100%; /* Altura completa */
-  overflow: auto; /* Habilitar scroll si es necesario */
-  background-color: rgb(0, 0, 0); /* Color de fondo */
-  background-color: rgba(0, 0, 0, 0.9); /* Color de fondo con opacidad */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semi-transparente */
 }
 
+/* Estilos para la imagen dentro del modal */
 .modal-contenido {
-  margin: auto;
+  display: block;
+  margin: 10% auto; /* Centrar la imagen verticalmente */
+  max-width: 80%;
+  max-height: 80%;
+}
+
+/* Estilos para el botón de cerrar */
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: black;
+  font-size: 35px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: white;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+/* Estilos para el caption (descripción de la imagen) */
+.caption-img {
+  margin: auto auto 25px auto;
   display: block;
   width: 80%;
   max-width: 700px;
-}
-
-.cerrar {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: black;
-  padding: 15px;
-  width: 20px; /* Ancho fijo */
-  height: 20px; /* Alto fijo */
-  border-radius: 50%; /* Hacer el borde completamente redondo */
-  background-color: white;
-  font-size: 35px; /* Ajusta el tamaño de la fuente si es necesario */
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: añade sombra para mejor visibilidad */
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 0;
 }
