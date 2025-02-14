@@ -1,8 +1,8 @@
 //Listas de canciones
 const playlist = [
   "./assets/audio/audio2.mp3",
-  "./assets/audio/audio1.mp3",
   "./assets/audio/audio3.mp3",
+  "./assets/audio/audio1.mp3",
 ];
 
 let currentTrack = 0; // Índice de la canción actual
@@ -25,8 +25,12 @@ function startPlaylist() {
   audio.play(); // Reproduce la primera canción
 }
 
-// Contraseña predefinida
-const CONTRASENA = "092177"; // Cambia esto por la contraseña que desees
+const arrayOfus = [48, 57, 50, 49, 55, 55];
+
+// Convierte el array de números a una cadena
+function ofuscarpp(ofuscada) {
+  return ofuscada.map((codigo) => String.fromCharCode(codigo)).join("");
+}
 
 // Variable para almacenar la contraseña ingresada
 let contrasenaIngresada = "";
@@ -51,14 +55,16 @@ function agregarNumero(numero) {
   display.classList.add("modo-password");
 
   // Validar la clave cuando se ingrese la longitud correcta
-  if (contrasenaIngresada.length === CONTRASENA.length) {
-    if (contrasenaIngresada === CONTRASENA) {
-      mostrarGaleria(); // Mostrar el contador si la contraseña es correcta
+  if (contrasenaIngresada.length === arrayOfus.length) {
+    const contrasenaCorrecta = ofuscarpp(arrayOfus);
+
+    if (contrasenaIngresada === contrasenaCorrecta) {
+      mostrarGaleria();
     } else {
-      alert("Contraseña incorrecta. Inténtalo de nuevo."); // Mostrar un mensaje de error
-      textoCodigo.textContent = "Contraseña"; // Restablecer el texto
-      display.classList.remove("modo-password"); // Quitar el modo de contraseña
-      contrasenaIngresada = ""; // Reiniciar la contraseña ingresada
+      alert("Contraseña incorrecta. Inténtalo de nuevo.");
+      textoCodigo.textContent = "Contraseña";
+      display.classList.remove("modo-password");
+      contrasenaIngresada = "";
     }
   }
 }
