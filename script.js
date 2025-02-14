@@ -1,3 +1,30 @@
+//Listas de canciones
+const playlist = [
+  "./assets/audio/audio2.mp3",
+  "./assets/audio/audio1.mp3",
+  "./assets/audio/audio3.mp3",
+];
+
+let currentTrack = 0; // Índice de la canción actual
+const audio = document.getElementById("musica");
+
+// Función para reproducir la siguiente canción
+function playNextTrack() {
+  currentTrack = (currentTrack + 1) % playlist.length; // Avanza al siguiente índice (o vuelve al inicio)
+  audio.src = playlist[currentTrack]; // Cambia la fuente del audio
+  audio.play(); // Reproduce la canción
+}
+
+// Evento cuando la canción actual termina
+audio.addEventListener("ended", playNextTrack);
+
+// Función para iniciar la lista de reproducción
+function startPlaylist() {
+  currentTrack = 0; // Reinicia al primer track
+  audio.src = playlist[currentTrack]; // Establece la primera canción
+  audio.play(); // Reproduce la primera canción
+}
+
 // Contraseña predefinida
 const CONTRASENA = "092177"; // Cambia esto por la contraseña que desees
 
@@ -36,18 +63,6 @@ function agregarNumero(numero) {
   }
 }
 
-// Función para mostrar el contador y ocultar la caja fuerte
-function mostrarContador() {
-  const container = document.querySelector(".container");
-  const seccionContador = document.getElementById("seccion-contador");
-
-  // Ocultar la caja fuerte
-  container.style.display = "none";
-
-  // Mostrar el contador
-  seccionContador.style.display = "block";
-}
-
 // Función para mostrar la galería de fotos
 function mostrarGaleria() {
   const container = document.querySelector(".container");
@@ -60,9 +75,8 @@ function mostrarGaleria() {
   // Mostrar la galería
   seccionGaleria.style.display = "block";
 
-  // Reproducir la música
-  const musica = document.getElementById("musica");
-  musica.play(); // Inicia la reproducción
+  // Iniciar la lista de reproducción
+  startPlaylist();
 }
 
 //funcion ocultar galeria
@@ -71,9 +85,11 @@ function ocultarGaleria() {
   seccionGaleria.style.display = "none";
 
   // Pausar la música
-  const musica = document.getElementById("musica");
-  musica.pause();
-  musica.currentTime = 0; // Reinicia la música al principio
+  // Detener la música y reiniciar la lista de reproducción
+  const audio = document.getElementById("musica");
+  audio.pause(); // Pausa la reproducción
+  audio.currentTime = 0; // Reinicia la canción al principio
+  currentTrack = 0; // Reinicia el índice de la lista de reproducción/ Reinicia la música al principio
 }
 
 // Función para mostrar la carta
