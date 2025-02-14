@@ -208,7 +208,7 @@ body {
   border-radius: 40px;
   color: white;
   font-size: 18px;
-  cursor: url(assets/icon/love-pointer.cur), auto;
+  cursor: url(assets/icon/cursor_hand.svg), auto;
   gap: 8px; /* Espacio entre el ícono y el texto */
   margin-top: 20px;
   transition: background-color 0.3s;
@@ -234,9 +234,17 @@ body {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   margin: 20px auto;
+}
+
+.title-name h1 {
+  font-size: 24px;
+  color: #d1548f;
+  font-family: "Rubik Spray Paint", cursive;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .titulo-galeria h1 {
@@ -252,13 +260,13 @@ body {
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
-  max-height: 500px;
+  max-height: 400px;
   overflow: auto;
 }
 
 .fotos img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -270,7 +278,7 @@ body {
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 16px;
-  cursor: url(assets/icon/love-pointer-q.cur), auto;
+  cursor: url(assets/icon/cursor_hand.svg), auto;
   transition: background-color 0.3s, color 0.3s;
   font-family: "Delius", cursive;
 }
@@ -303,7 +311,7 @@ body {
 .contenido-carta p {
   font-size: 16px;
   color: #333;
-  padding: 8px;
+  padding: 18px;
   border-radius: 30px;
   border: 1px solid #d1548f;
   box-shadow: 1px 1px 15px 10px #e98bb7;
@@ -449,4 +457,47 @@ body {
     font-family: "Knewave", cursive;
     color: #df4c71;
   }
+  .seccion-galeria {
+    padding: 10px;
+  }
+}
+
+/* Estilo del modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Se queda fijo en el lugar */
+  z-index: 1; /* Situado encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Anchura completa */
+  height: 100%; /* Altura completa */
+  overflow: auto; /* Habilitar scroll si es necesario */
+  background-color: rgb(0, 0, 0); /* Color de fondo */
+  background-color: rgba(0, 0, 0, 0.9); /* Color de fondo con opacidad */
+}
+
+.modal-contenido {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: black;
+  padding: 15px;
+  width: 20px; /* Ancho fijo */
+  height: 20px; /* Alto fijo */
+  border-radius: 50%; /* Hacer el borde completamente redondo */
+  background-color: white;
+  font-size: 35px; /* Ajusta el tamaño de la fuente si es necesario */
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: añade sombra para mejor visibilidad */
 }

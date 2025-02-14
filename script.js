@@ -59,6 +59,21 @@ function mostrarGaleria() {
   seccionCarta.style.display = "none";
   // Mostrar la galería
   seccionGaleria.style.display = "block";
+
+  // Reproducir la música
+  const musica = document.getElementById("musica");
+  musica.play(); // Inicia la reproducción
+}
+
+//funcion ocultar galeria
+function ocultarGaleria() {
+  const seccionGaleria = document.getElementById("seccion-galeria");
+  seccionGaleria.style.display = "none";
+
+  // Pausar la música
+  const musica = document.getElementById("musica");
+  musica.pause();
+  musica.currentTime = 0; // Reinicia la música al principio
 }
 
 // Función para mostrar la carta
@@ -72,3 +87,37 @@ function mostrarCarta() {
   // Mostrar la carta
   seccionCarta.style.display = "block";
 }
+
+// Obtener los elementos del modal
+var modal = document.getElementById("modal-imagen");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var cerrar = document.getElementsByClassName("cerrar")[0];
+
+// Función para abrir el modal
+function abrirImagenModal(img) {
+  modal.style.display = "block";
+  modalImg.src = img.src;
+  captionText.innerHTML = img.alt;
+}
+
+// Evento clic para cerrar el modal
+cerrar.onclick = function () {
+  console.log("click en cerrar");
+
+  modal.style.display = "none";
+};
+
+// Añadir evento clic a cada imagen
+document.querySelectorAll(".fotos img").forEach((img) => {
+  img.onclick = function () {
+    abrirImagenModal(this);
+  };
+});
+
+// Evento clic en el contenedor del modal
+modal.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
